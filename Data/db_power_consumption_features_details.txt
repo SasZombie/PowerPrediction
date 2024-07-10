@@ -1,0 +1,24 @@
+Code
+	A unique identifier code for clients, which has no any legal or practical use. It has been created by this data release authors for data set structuring purposes.
+
+Area
+	U: Urban area of the municipality.
+	R: Rural area of the municipality.
+
+Date
+	It corresponds to date when measure was registered. In format yyyy-dd-mm
+
+Municipality
+	It can be one of the following municipalities: Barbacoas, Cumbitara, El Rosario, Leiva, Magui, Policarpa, Roberto Payan. 
+	
+Use
+	Type of client. It can be: Residential (1, 2, 3, Sub), Industrial, Official, Commercial,  Special.
+
+Stratum
+	It represents the social strata, they range from 0 to 3, with 0 being the lowest. It corresponds to:  0 = Low-low, 1 = Low, 2 = Medium-Low, 3 = Medium
+
+Consumption
+	Power consumption in kWh. It is the predictor variable.
+
+Code
+	An unique identifier code for clients, which has no any legal or practical use. It has been created by this data release authors for data set structuring purposes
