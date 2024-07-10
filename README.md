@@ -17,7 +17,7 @@ Arhitectura aleasa este de: un strat [LSTM](https://en.wikipedia.org/wiki/Long_s
 
 Cum aceest proiect este un singur fisier poate fi descarcat/clonat dupa cum este preferat: 
 ```
-git clone https://github.com/SasZombie/scala
+https://github.com/SasZombie/PowerPrediction
 ```
 Dependentele necesare: **python, keras, pandas, sklearn, numpy, matplotlib**
 
