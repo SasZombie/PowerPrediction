@@ -2,7 +2,7 @@
 
 Aceest proiect are in vedere creearea unei inteligente artificiale de tipul machine learning pentru prezicerile de consum in functie de: Data, Zona, Municipiu, Tip de folosinta si Statutul social al consumatorului, folosindu-se un model LSTM preluat de pe: https://keras.io/examples/timeseries/timeseries_weather_forecasting/. 
 
-Datele au fost extrase din PCSTCOL: Power consumption data from an area of southern Colombia, publicat in 14-Jan-2020: https://data.mendeley.com/datasets/xbt7scz5ny/3. Au fost extrase 4427 de caracteristici din principalele 7 municipii din Nariño, Colombia, din Decembrie 2010 pana in Mai 2016. Aceeste date au fostextrase de catre CEDENAR(Centrales Eléctricas de Nariño).
+Datele au fost extrase din PCSTCOL: Power consumption data from an area of southern Colombia, publicat in 14-Jan-2020: https://data.mendeley.com/datasets/xbt7scz5ny/3. Au fost extrase 4427 de caracteristici din principalele 7 municipii din Nariño, Colombia, din Decembrie 2010 pana in Mai 2016. Aceeste date au fost extrase de catre CEDENAR(Centrales Eléctricas de Nariño).
 Modelul parcurge 10 epoci, cu serii de 265. 
 
 Arhitectura aleasa este de: un strat [LSTM](https://en.wikipedia.org/wiki/Long_short-term_memory)(Long short-term memory) cu 32 de neuroni si un strtat dens de iesire cu 1 neuron. 
