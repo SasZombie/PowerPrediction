@@ -23,7 +23,7 @@ Dependentele necesare: **python, keras, pandas, sklearn, numpy, matplotlib**
 
 ### Windows
 
-Se instaleaza python de pe internet
+Se instaleaza python de pe internet, iar apoi:
 
 ```
 pip install keras, pandas, sklearn, numpy, matplotlib
