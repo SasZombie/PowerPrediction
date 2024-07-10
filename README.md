@@ -1,6 +1,6 @@
 # Prezicere Consum de Curent
 
-Aceest proiect are in vedere creearea unei intligente artificiale de tipul machine learning pentru prezicerile de consum in functie de: Data, Zona, Municipiu, Tip de folosinta si Statutul social al consumatorului, folosindu-se un model LSTM preluat de pe: https://keras.io/examples/timeseries/timeseries_weather_forecasting/. 
+Aceest proiect are in vedere creearea unei inteligente artificiale de tipul machine learning pentru prezicerile de consum in functie de: Data, Zona, Municipiu, Tip de folosinta si Statutul social al consumatorului, folosindu-se un model LSTM preluat de pe: https://keras.io/examples/timeseries/timeseries_weather_forecasting/. 
 
 Datele au fost extrase din PCSTCOL: Power consumption data from an area of southern Colombia, publicat in 14-Jan-2020: https://data.mendeley.com/datasets/xbt7scz5ny/3. Au fost extrase 4427 de caracteristici din principalele 7 municipii din Nariño, Colombia, din Decembrie 2010 pana in Mai 2016. Aceeste date au fostextrase de catre CEDENAR(Centrales Eléctricas de Nariño).
 Modelul parcurge 10 epoci, cu serii de 265. 
