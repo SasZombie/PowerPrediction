@@ -25,11 +25,11 @@ def show_plot(plot_data, future, title):
 
     plt.title(title)
     for i, val in enumerate(plot_data):
-        if i == 1:  # True Future
+        if i == 1: 
             plt.plot([future], [plot_data[i]], marker[i], markersize=10, label=labels[i])
-        elif i == 2:  # Model Prediction
+        elif i == 2:
             plt.plot([future], [plot_data[i]], marker[i], markersize=10, label=labels[i])
-        else:  # History
+        else: 
             plt.plot(time_steps, plot_data[i].flatten(), marker[i], label=labels[i])
 
     plt.legend()
