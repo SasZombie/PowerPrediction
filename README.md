@@ -37,7 +37,7 @@ Trebuie instalate aceeleasi pachete de la managerul de pachete respectiv fiecare
 > Ar putea exista un conflict intre keras si numpy 2.0, ceea ce face compilarea imposibila. Pentru o instalare fara probleme se recomanda venv
 
 ```
-venv currentvenv
+venv venv
 source venv/bin/activate
 ```
 Acum aceest terminal se va comporta ca cel din windows si se procedeaza precum in [windows](#windows)
