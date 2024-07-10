@@ -23,7 +23,7 @@ Dependentele necesare: **python, keras, pandas, sklearn, numpy, matplotlib**
 
 ### Windows
 
-Se instaleaza python de pe internet
+Se instaleaza python de pe internet, iar apoi:
 
 ```
 pip install keras, pandas, sklearn, numpy, matplotlib
@@ -40,7 +40,7 @@ Trebuie instalate aceeleasi pachete de la managerul de pachete respectiv fiecare
 venv currentvenv
 source venv/bin/activate
 ```
-Acum aceest terminal se va comporta ca cel din windows si se procedeaza precum [aici](#windows)
+Acum aceest terminal se va comporta ca cel din windows si se procedeaza precum in [windows](#windows)
 
 ## Utilizare
 
