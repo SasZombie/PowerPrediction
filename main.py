@@ -3,6 +3,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 from sklearn.preprocessing import OneHotEncoder, StandardScaler
 import keras
+from PIL import Image
 
 def visualize_loss(history, title):
         loss = history.history["loss"]
@@ -15,7 +16,9 @@ def visualize_loss(history, title):
         plt.xlabel("Epochs")
         plt.ylabel("Loss")
         plt.legend()
+        plt.savefig('plot.svg')
         plt.show()
+        
         
 def show_plot(plot_data, future, title):
     plt.figure(figsize=(10, 6))
@@ -34,7 +37,9 @@ def show_plot(plot_data, future, title):
 
     plt.legend()
     plt.xlim([time_steps[0], (future + 5) * 2])
-    plt.xlabel("Time-Step")
+    plt.xlabel("Days")
+    plt.ylabel("Energy Consumption")
+    plt.savefig('plot2.svg')
     plt.show()
     return
 
