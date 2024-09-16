@@ -1,8 +1,8 @@
 # Prezicere Consum de Curent
 
-Aceest proiect are in vedere creearea unei intligente artificiale de tipul machine learning pentru prezicerile de consum in functie de: Data, Zona, Municipiu, Tip de folosinta si Statutul social al consumatorului, folosindu-se un model LSTM preluat de pe: https://keras.io/examples/timeseries/timeseries_weather_forecasting/. 
+Aceest proiect are in vedere creearea unei inteligente artificiale de tipul machine learning pentru prezicerile de consum in functie de: Data, Zona, Municipiu, Tip de folosinta si Statutul social al consumatorului, folosindu-se un model LSTM preluat de pe: https://keras.io/examples/timeseries/timeseries_weather_forecasting/. 
 
-Datele au fost extrase din PCSTCOL: Power consumption data from an area of southern Colombia, publicat in 14-Jan-2020: https://data.mendeley.com/datasets/xbt7scz5ny/3. Au fost extrase 4427 de caracteristici din principalele 7 municipii din Nariño, Colombia, din Decembrie 2010 pana in Mai 2016. Aceeste date au fostextrase de catre CEDENAR(Centrales Eléctricas de Nariño).
+Datele au fost extrase din PCSTCOL: Power consumption data from an area of southern Colombia, publicat in 14-Jan-2020: https://data.mendeley.com/datasets/xbt7scz5ny/3. Au fost extrase 4427 de caracteristici din principalele 7 municipii din Nariño, Colombia, din Decembrie 2010 pana in Mai 2016. Aceeste date au fost extrase de catre CEDENAR(Centrales Eléctricas de Nariño).
 Modelul parcurge 10 epoci, cu serii de 265. 
 
 Arhitectura aleasa este de: un strat [LSTM](https://en.wikipedia.org/wiki/Long_short-term_memory)(Long short-term memory) cu 32 de neuroni si un strtat dens de iesire cu 1 neuron. 
@@ -17,7 +17,7 @@ Arhitectura aleasa este de: un strat [LSTM](https://en.wikipedia.org/wiki/Long_s
 
 Cum aceest proiect este un singur fisier poate fi descarcat/clonat dupa cum este preferat: 
 ```
-git clone https://github.com/SasZombie/scala
+git clone https://github.com/SasZombie/PowerPrediction
 ```
 Dependentele necesare: **python, keras, pandas, sklearn, numpy, matplotlib**
 
@@ -37,7 +37,7 @@ Trebuie instalate aceeleasi pachete de la managerul de pachete respectiv fiecare
 > Ar putea exista un conflict intre keras si numpy 2.0, ceea ce face compilarea imposibila. Pentru o instalare fara probleme se recomanda venv
 
 ```
-venv currentvenv
+venv venv
 source venv/bin/activate
 ```
 Acum aceest terminal se va comporta ca cel din windows si se procedeaza precum in [windows](#windows)
