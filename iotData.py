@@ -40,7 +40,6 @@ def show_plot(plot_data, future, title):
     plt.savefig('plot2.svg')
     plt.show()
 
-
 def create_sequences(data, past, future, step, target_column):
     x = []
     y = []
@@ -52,60 +51,49 @@ def create_sequences(data, past, future, step, target_column):
     y = np.array(y)
     return x, y
 
-
 def main()->None:
-
     df = pd.read_csv("household_data_60min_singleindex.csv").iloc[12025:12425]
 
     df['utc_timestamp'] = pd.to_datetime(df['utc_timestamp'])
     df['cet_cest_timestamp'] = pd.to_datetime(df['cet_cest_timestamp'])
 
-
     df.drop(columns=['DE_KN_industrial3_area_offices'], inplace=True)
 
-
     numeric_features = df.select_dtypes(include=['float64', 'int64']).columns
-
 
     constant_columns = [col for col in numeric_features if df[col].nunique() == 1]
     if constant_columns:
         print(f"Removing constant columns: {constant_columns}")
         df.drop(columns=constant_columns, inplace=True)
 
-
     df.replace([np.inf, -np.inf], np.nan, inplace=True)
     df[numeric_features] = df[numeric_features].fillna(df[numeric_features].median())
-
 
     scaler = StandardScaler()
     df[numeric_features] = scaler.fit_transform(df[numeric_features])
 
-    
     encoder = OneHotEncoder(sparse_output=False, drop='first')
     encoded_interpolated = encoder.fit_transform(df[['interpolated']])
     encoded_interpolated_df = pd.DataFrame(encoded_interpolated, columns=encoder.get_feature_names_out(['interpolated']))
 
-    
     final_df = pd.concat([df[numeric_features].reset_index(drop=True), encoded_interpolated_df.reset_index(drop=True)], axis=1)
 
-    
     split_fraction = 0.715
     train_split = int(split_fraction * int(final_df.shape[0]))
 
     train_data = final_df.iloc[:train_split]
     val_data = final_df.iloc[train_split:]
-    
+
     print(f"Train data shape: {train_data.shape}")
     print(f"Val data shape: {val_data.shape}")
 
-
+  
     past = 50
     future = 10
     step = 3
 
-    target_column = 'DE_KN_residential1_grid_import' 
-
-
+    target_column = 'DE_KN_residential1_grid_import'  
+    
     if train_data.shape[0] <= past + future:
         print("Warning: The dataset is too small for the selected past and future values.")
         return
