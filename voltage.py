@@ -46,38 +46,57 @@ def main()->None:
 
     model.summary()
 
-
     split = int(0.8 * len(X_lstm))
     X_train, X_test = X_lstm[:split], X_lstm[split:]
     y_train, y_test = y_lstm[:split], y_lstm[split:]
-
 
     history = model.fit(X_train, y_train, epochs=3, batch_size=32, validation_data=(X_test, y_test))
 
     plt.plot(history.history['loss'], label='train')
     plt.plot(history.history['val_loss'], label='test')
+    plt.xlabel('epochs')
+    plt.ylabel('value')
     plt.legend()
+    plt.savefig('voltage1.svg')
     plt.show()
 
     predicted_values = model.predict(X_test)
+    title = "Predictions"
 
     predicted_values_rescaled = scaler.inverse_transform(predicted_values)
     y_test_rescaled = scaler.inverse_transform(y_test)
-
     features_list = ['Temperature', 'Humidity', 'Light', 'Voltage']
-
+    future_step = 1900
+    cutoff_factor = 500
     plt.figure(figsize=(14, 10))
+    
     for i in range(4):
-        plt.subplot(2, 2, i+1)  
-        plt.plot(range(len(y_test_rescaled)), y_test_rescaled[:, i], 'ro', label='Actual')  
-        plt.plot(range(len(predicted_values_rescaled)), predicted_values_rescaled[:, i], 'go', label='Predicted')  
+        plt.subplot(2, 2, i + 1)
+        
+        labels = ["History", "True Future", "Predicted Future", "Prediction Histroy"]
+        marker = [".-", "go", "ro", "bo"]
+        
+        #True History 
+        plt.plot(range(len(y_test_rescaled) - cutoff_factor), y_test_rescaled[:-cutoff_factor, i], marker[0], label=labels[0])
+        
+        #Predicted History
+        
+        plt.plot(range(len(predicted_values_rescaled) - cutoff_factor), predicted_values_rescaled[:-cutoff_factor, i], marker[1], label=labels[3])
+
+        #True Future Dot
+        plt.plot([future_step], [y_test_rescaled[future_step, i]], marker[3], markersize=10, label=labels[1])
+        
+        #Predicted Fututre Dot
+        plt.plot([future_step], [predicted_values_rescaled[future_step, i]], marker[2], markersize=10, label=labels[2])
+        
         plt.title(features_list[i])
-        plt.xlabel('Time steps')
+        plt.xlabel("Time steps")
         plt.ylabel(features_list[i])
         plt.legend()
 
-    plt.tight_layout()
+    plt.suptitle(title)  
+    plt.tight_layout(rect=[0, 0.03, 1, 0.95]) 
     plt.show()
-
+    
 if __name__ == "__main__":
     main()
