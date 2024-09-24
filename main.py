@@ -113,7 +113,7 @@ def main()->None:
         prediction = model.predict(np.expand_dims(x, axis=0))[0]
         show_plot(
             [x[:, -1], y, prediction],
-            future,
+            30,
             f"Single Step Prediction - Sequence {i+1}"
         )
 
