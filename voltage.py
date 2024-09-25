@@ -68,10 +68,10 @@ def main()->None:
     features_list = ['Temperature', 'Humidity', 'Light', 'Voltage']
     future_step = 1900
     cutoff_factor = 500
-    plt.figure(figsize=(14, 10))
+    # plt.figure(figsize=(14, 10))
     
     for i in range(4):
-        plt.subplot(2, 2, i + 1)
+        # plt.subplot(2, 2, i + 1)
         
         labels = ["History", "True Future", "Predicted Future", "Prediction Histroy"]
         marker = [".-", "go", "ro", "bo"]
@@ -80,8 +80,7 @@ def main()->None:
         plt.plot(range(len(y_test_rescaled) - cutoff_factor), y_test_rescaled[:-cutoff_factor, i], marker[0], label=labels[0])
         
         #Predicted History
-        
-        plt.plot(range(len(predicted_values_rescaled) - cutoff_factor), predicted_values_rescaled[:-cutoff_factor, i], marker[1], label=labels[3])
+        # plt.plot(range(len(predicted_values_rescaled) - cutoff_factor), predicted_values_rescaled[:-cutoff_factor, i], marker[1], label=labels[3])
 
         #True Future Dot
         plt.plot([future_step], [y_test_rescaled[future_step, i]], marker[3], markersize=10, label=labels[1])
@@ -89,14 +88,15 @@ def main()->None:
         #Predicted Fututre Dot
         plt.plot([future_step], [predicted_values_rescaled[future_step, i]], marker[2], markersize=10, label=labels[2])
         
-        plt.title(features_list[i])
+        # plt.title(features_list[i])
         plt.xlabel("Time steps")
         plt.ylabel(features_list[i])
         plt.legend()
+        plt.savefig('Figure' + str(i) + '.png')
+        plt.show()
 
-    plt.suptitle(title)  
-    plt.tight_layout(rect=[0, 0.03, 1, 0.95]) 
-    plt.show()
+    # plt.suptitle(title)  
+    # plt.tight_layout(rect=[0, 0.03, 1, 0.95]) 
     
 if __name__ == "__main__":
     main()
