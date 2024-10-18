@@ -52,7 +52,7 @@ def main()->None:
 
     history = model.fit(X_train, y_train, epochs=3, batch_size=32, validation_data=(X_test, y_test))
 
-    plt.plot(history.history['loss'], label='train')
+    plt.plot(history.history['loss'], label='train', color="purple")
     plt.plot(history.history['val_loss'], label='test')
     plt.xlabel('epochs')
     plt.ylabel('value')
@@ -61,7 +61,6 @@ def main()->None:
     plt.show()
 
     predicted_values = model.predict(X_test)
-    title = "Predictions"
 
     predicted_values_rescaled = scaler.inverse_transform(predicted_values)
     y_test_rescaled = scaler.inverse_transform(y_test)
@@ -73,7 +72,7 @@ def main()->None:
     for i in range(4):
         # plt.subplot(2, 2, i + 1)
         
-        labels = ["History", "True Future", "Predicted Future", "Prediction Histroy"]
+        labels = ["History", "Real Value", "Predicted Future", "Prediction Histroy"]
         marker = [".-", "go", "ro", "bo"]
         
         #True History 
@@ -93,6 +92,7 @@ def main()->None:
         plt.ylabel(features_list[i])
         plt.legend()
         plt.savefig('Figure' + str(i) + '.png')
+        plt.savefig('Figure' + str(i) + '.svg')
         plt.show()
 
     # plt.suptitle(title)  
